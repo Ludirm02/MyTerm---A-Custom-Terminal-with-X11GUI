@@ -1,0 +1,55 @@
+1) System calls are the interface between user programs and the kernel(the core part of the os)
+
+think like this :- 
+You (the user program) want to do something that requires hardware access — say, reading a file from disk.
+But you can’t directly talk to the hardware (for security and stability reasons).
+So, you ask the OS kernel to do it for you using a system call.
+
+2) pthread also known as the POSIX(portable os interface) threads that provides functions for creating and managing threads - multiple units of execution within a  single process.
+
+Threads let a program run multiple tasks concurrently within the same process — for example:
+One thread handles user input
+One thread processes data
+One thread saves results to disk
+All share the same memory, making communication fast.
+
+common pthreads functions:
+1) pthread_create() - creates a new thread
+2) pthread_exit() - terminates the calling thread
+3) pthread_join() - wait for a thread to finish execution
+4) pthread_self() - returns the threadId of the calling thread
+
+Synchronization (to avoid race conditions)
+1) pthread_mutex_init() - initializes a lock
+2) pthread_mutex_lock()	- Locks a mutex.
+3) pthread_mutex_unlock() - Unlocks a mutex.
+4) pthread_cond_wait() - Waits for a condition variable.
+
+3) kernel - the core part of the OS.
+It is the bridge between applications and the hardware.
+
+You can think of it like the “manager” of all computer resources —
+it decides who gets to use the CPU, memory, files, and devices, and when.
+
+4) fork() is a system call used to create a new process.
+when the process calls fork() , the os creates a copy of the process called as the child process.
+
+fork() returns 0 to the child process.
+fork() returns child’s PID to the parent process.
+
+5) exec() replaces the current process with a new program.
+after exec(), only one(the new one) continues.
+
+6) diff between shared memory and pipes: 
+Pipes - A unidirectional data channel used for interprocess communication (IPC).
+Slower (data must go through the kernel buffer)
+Usually unidirectional (one writes, one reads)
+
+7) How is a mutex different from a semaphore?
+→ Mutex is owned by a thread, semaphore is a counter with no ownership.
+
+8) A system call is a way for a user program to request a service from the operating system’s kernel.
+
+When your program needs to do something that it cannot do directly — like reading a file, printing on the screen, creating a process, or allocating memory — it calls the kernel through a system call.
+
+uses a system call to switch from user mode → kernel mode.
